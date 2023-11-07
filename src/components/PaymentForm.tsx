@@ -8,10 +8,10 @@ type PaymentData = {
 };
 
 type PaymentFormProps = PaymentData & {
-    name: string;
-    cardNum: string;
-    expiryDate: string;
-    cvc: string;
+  name: string;
+  cardNum: string;
+  expiryDate: string;
+  cvc: string;
   updateFields: (fields: Partial<PaymentData>) => void;
 };
 
@@ -22,6 +22,14 @@ export function PaymentForm({
   cvc,
   updateFields,
 }: PaymentFormProps) {
+  const handleNumericInputChange = (
+    fieldName: keyof PaymentData,
+    value: string
+  ) => {
+    const numericValue = value.replace(/\D/g, ""); // Remove non-digit characters
+    updateFields({ [fieldName]: numericValue });
+  };
+
   return (
     <FormWrapper title="Payment Form">
       <label>Name</label>
@@ -33,17 +41,19 @@ export function PaymentForm({
         value={name}
         onChange={(e) => updateFields({ name: e.target.value })}
       />
+
       <label>Card Number</label>
       <input
         className="text-black"
         required
-        type="number"
+        type="text"
         value={cardNum}
         placeholder="XXXX-XXXX-XXXX-XXXX"
         maxLength={16}
         minLength={16}
-        onChange={(e) => updateFields({ cardNum: e.target.value })}
+        onChange={(e) => handleNumericInputChange("cardNum", e.target.value)}
       />
+
       <label>Expiry Date</label>
       <input
         className="text-black"
@@ -53,8 +63,9 @@ export function PaymentForm({
         placeholder="mm / yy"
         maxLength={4}
         minLength={4}
-        onChange={(e) => updateFields({ expiryDate: e.target.value })}
+        onChange={(e) => handleNumericInputChange("expiryDate", e.target.value)}
       />
+
       <label>CVC</label>
       <input
         className="text-black"
@@ -64,7 +75,7 @@ export function PaymentForm({
         placeholder="000"
         maxLength={3}
         minLength={3}
-        onChange={(e) => updateFields({ cvc: e.target.value })}
+        onChange={(e) => handleNumericInputChange("cvc", e.target.value)}
       />
     </FormWrapper>
   );

@@ -1,18 +1,18 @@
 import { useState,  useEffect } from "react";
 import { FormWrapper } from "./FormWrapper";
 
-type UserData = {
+type JourneyData = {
   selectedValue: string;
   tripNum: string;
 };
 
-type UserFormProps = {
+type JourneyFormProps = {
   selectedValue: string;
   tripNum: string;
-  updateFields: (fields: Partial<UserData>) => void;
+  updateFields: (fields: Partial<JourneyData>) => void;
 };
 
-export function UserForm({ selectedValue,tripNum, updateFields }: UserFormProps) {
+export function JourneyForm({ selectedValue,tripNum, updateFields }: JourneyFormProps) {
   // const [selectedValue, setSelectedValue] = useState("");
   const [totalValue, setTotalValue] = useState<string | number | undefined>(0);
 

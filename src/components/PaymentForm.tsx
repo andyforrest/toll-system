@@ -32,17 +32,18 @@ export function PaymentForm({
 
   return (
     <FormWrapper title="Payment Form">
-      <label>Name</label>
+      <label htmlFor="name">Name</label>
       <input
         className="text-black"
         autoFocus
         required
         type="text"
         value={name}
+        id="name"
         onChange={(e) => updateFields({ name: e.target.value })}
       />
 
-      <label>Card Number</label>
+      <label htmlFor="cardNum">Card Number</label>
       <input
         className="text-black"
         required
@@ -51,10 +52,11 @@ export function PaymentForm({
         placeholder="XXXX-XXXX-XXXX-XXXX"
         maxLength={16}
         minLength={16}
+        id="cardNum"
         onChange={(e) => handleNumericInputChange("cardNum", e.target.value)}
       />
 
-      <label>Expiry Date</label>
+      <label htmlFor="expiryDate">Expiry Date</label>
       <input
         className="text-black"
         required
@@ -63,10 +65,11 @@ export function PaymentForm({
         placeholder="mm / yy"
         maxLength={4}
         minLength={4}
+        id="expiryDate"
         onChange={(e) => handleNumericInputChange("expiryDate", e.target.value)}
       />
 
-      <label>CVC</label>
+      <label htmlFor="cvc">CVC</label>
       <input
         className="text-black"
         required
@@ -75,6 +78,7 @@ export function PaymentForm({
         placeholder="000"
         maxLength={3}
         minLength={3}
+        id="cvc"
         onChange={(e) => handleNumericInputChange("cvc", e.target.value)}
       />
     </FormWrapper>

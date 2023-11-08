@@ -69,22 +69,18 @@ export function JourneyForm({ selectedValue,tripNum, updateFields }: JourneyForm
 
 
 
-  return (
+   return (
     <FormWrapper title="Select Journey Details">
-      <label>Select</label>
+      <label htmlFor="select">Select Journey</label>
       <select
         value={selectedValue}
-        // onChange={(e) => {
-        //   handleChange(e);
-        // }}
         onChange={(e) => updateFields({ selectedValue: e.target.value })}
         name="options"
         className="bg-gray-50 border border-gray-300 text-black"
         required
+        id="select" // Assign an ID to the select element
       >
-        <option value="" disabled>
-          Choose an option
-        </option>
+        <option value="" disabled> Choose an option </option>
         <option value='{"Denarius": 0, "Sestertius": 0, "Dupondius": 0, "As": 1}'>
           Single person, light load
         </option>
@@ -110,7 +106,7 @@ export function JourneyForm({ selectedValue,tripNum, updateFields }: JourneyForm
           Horse-drawn cart, 6 horses
         </option>
       </select>
-      <label>Number of Trips</label>
+      <label htmlFor="tripNum">Number of Trips</label>
       <input
         required
         min={1}
@@ -118,9 +114,16 @@ export function JourneyForm({ selectedValue,tripNum, updateFields }: JourneyForm
         value={tripNum}
         onChange={(e) => updateFields({ tripNum: e.target.value })}
         className="text-black"
+        id="tripNum"
       />
-      <label>Total</label>
-      <input type="text" value={totalValue} className="text-black" disabled />
+      <label htmlFor="total">Total</label>
+      <input
+        type="text"
+        value={totalValue}
+        className="text-black"
+        disabled
+        id="total"
+      />
     </FormWrapper>
   );
 }

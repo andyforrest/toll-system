@@ -52,7 +52,7 @@ function App() {
         onSubmit={onSubmit}
         className="bg-slate-900 shadow-md rounded px-8 pt-6 pb-8 mb-4 "
       >
-        <div className="mb-4">
+        <div className="mb-4 text-2xl">
           {/* This will show user what page they are on and how many pages the are left to go through */}
           {currentStepIndex + 1} / {steps.length}
         </div>
@@ -63,14 +63,14 @@ function App() {
             <button
               type="button"
               onClick={back}
-              className="bg-pink-500 hover:bg-blue-700  font-bold py-2 px-4 m-1 mt-2 rounded"
+              className="bg-pink-500 text-2xl hover:bg-blue-700  font-bold py-2 px-4 m-1 mt-4 rounded"
             >
               Back
             </button>
           )}
           <button
             type="submit"
-            className="bg-pink-500 hover:bg-blue-700 font-bold py-2 px-4 m-1 mt-2 rounded"
+            className="bg-pink-500 text-2xl hover:bg-blue-700 font-bold py-2 px-4 m-1 mt-4 rounded"
           >
             {/* This shows submit button if on last page*/}
             {isLastStep ? "Submit" : "Next"}

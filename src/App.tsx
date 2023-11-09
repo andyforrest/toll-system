@@ -11,8 +11,6 @@ type FormData = {
   cardNum: string;
   expiryDate: string;
   cvc: string;
-  email: string;
-  password: string;
 };
 
 const INITIAL_DATA: FormData = {
@@ -22,8 +20,6 @@ const INITIAL_DATA: FormData = {
   cardNum: "",
   expiryDate: "",
   cvc: "",
-  email: "",
-  password: "",
 };
 
 function App() {
@@ -45,6 +41,7 @@ function App() {
 
     //I would send a post request to backend api here and await response
     alert("Payment Success!");
+    setData(INITIAL_DATA);
   }
   return (
     <div className="max-w-4xl m-auto mt-8 overflow-auto  rounded-md text-white">

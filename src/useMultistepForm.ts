@@ -17,7 +17,7 @@ export function useMultistepFrom(steps: ReactElement[]) {
     });
   }
 
-  function goTo(i) {
+  function goTo(i: number) {
     setCurrectStepIndex(i);
   }
 

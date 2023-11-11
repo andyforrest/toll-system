@@ -29,11 +29,19 @@ function App() {
       return { ...prev, ...fields };
     });
   }
-  const { steps, currentStepIndex, step, isFirstStep, back, next, isLastStep } =
-    useMultistepFrom([
-      <JourneyForm {...data} updateFields={updateFields} />,
-      <PaymentForm {...data} updateFields={updateFields} />,
-    ]);
+  const {
+    steps,
+    currentStepIndex,
+    step,
+    isFirstStep,
+    back,
+    next,
+    isLastStep,
+    goTo,
+  } = useMultistepFrom([
+    <JourneyForm {...data} updateFields={updateFields} />,
+    <PaymentForm {...data} updateFields={updateFields} />,
+  ]);
 
   function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -42,6 +50,7 @@ function App() {
     //I would send a post request to backend api here and await response
     alert("Payment Success!");
     setData(INITIAL_DATA);
+    goTo(0);
   }
   return (
     <div className="max-w-4xl m-auto mt-8 overflow-auto  rounded-md text-white">

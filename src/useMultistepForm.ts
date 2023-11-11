@@ -17,6 +17,10 @@ export function useMultistepFrom(steps: ReactElement[]) {
     });
   }
 
+  function goTo(i) {
+    setCurrectStepIndex(i);
+  }
+
   return {
     currentStepIndex,
     step: steps[currentStepIndex],
@@ -25,5 +29,6 @@ export function useMultistepFrom(steps: ReactElement[]) {
     isLastStep: currentStepIndex === steps.length - 1,
     next,
     back,
+    goTo
   };
 }

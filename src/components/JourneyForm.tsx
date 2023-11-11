@@ -120,7 +120,7 @@ export function JourneyForm({ selectedValue,tripNum, updateFields }: JourneyForm
       <input
         type="text"
         value={totalValue}
-        className="text-black"
+        className="text-black bg-white"
         disabled
         id="total"
       />

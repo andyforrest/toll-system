@@ -1,6 +1,8 @@
 # Toll Collection System Frontend
 
-This application was completed using react as part of coursework
+This application was completed using react as part of my university coursework.
+
+You can find this application deployed here: https://toll-system-lac.vercel.app/
 
 ## Table of Contents
 - [Getting Started](#getting-started)
